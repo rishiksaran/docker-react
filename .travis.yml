@@ -1,0 +1,13 @@
+sudo: required
+language: generic
+
+services:
+    - docker
+    
+before_install:
+    - docker build -t rishiksaran/docker-react -f Dockerfile.dev .
+    
+    
+
+script:
+    - docker run -e CI=true rishiksaran/docker-react npm run test
